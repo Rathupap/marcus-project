@@ -3,7 +3,7 @@ import useAuth from "../hooks/useAuth";
 import Login from "../pages/login";
 import Private from "../pages/private";
 
-const RequireApp = ({ children }) => {
+const RequireAuth = ({ children }) => {
   const auth = useAuth();
   if (!auth.user) {
     return <Navigate to="/" replace />;
@@ -18,9 +18,9 @@ const AppRoutes = () => (
     <Route
       path="/private"
       element={
-        <RequireApp>
+        <RequireAuth>
           <Private />
-        </RequireApp>
+        </RequireAuth>
       }
     />
   </Routes>
